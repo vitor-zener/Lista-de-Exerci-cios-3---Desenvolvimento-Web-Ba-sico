@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria Responsiva</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        /* Navegação padrão */
+        .menu-nav {
+            display: none; /* Oculta por padrão */
+            flex-direction: column;
+            background-color: #333;
+            position: absolute;
+            top: 60px;
+            right: 0;
+            width: 200px;
+            padding: 15px 0;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .menu-nav.show {
+            display: flex;
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .menu-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            text-align: center;
+        }
+
+        .menu-nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            display: block;
+            padding: 10px;
+        }
+
+        .menu-nav ul li a:hover {
+            background: #575757;
+        }
+
+        /* Botão hamburguer SEMPRE visível */
+        .menu-toggle {
+            display: block;
+            font-size: 28px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        /* Galeria */
+        .flex-container {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .galeria-grid figure {
+            text-align: center;
+            background: #fff;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .galeria-grid img {
+            width: 100%;
+            border-radius: 6px;
+        }
+
+        /* Responsividade da galeria */
+        @media (max-width: 1024px) {
+            .galeria-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .galeria-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .galeria-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Galeria</h1>
+    <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+    <nav class="menu-nav" id="menu-nav">
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="listas.html">Listas</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+            <li><a href="galeria.html">Galeria</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <div class="flex-container">
+        <div class="galeria-grid">
+            <figure><img src="imagens/foto1.jpg" alt="Imagem 1"><figcaption>Imagem 1</figcaption></figure>
+            <figure><img src="imagens/foto2.jpg" alt="Imagem 2"><figcaption>Imagem 2</figcaption></figure>
+            <figure><img src="imagens/foto3.jpg" alt="Imagem 3"><figcaption>Imagem 3</figcaption></figure>
+            <figure><img src="imagens/foto4.jpg" alt="Imagem 4"><figcaption>Imagem 4</figcaption></figure>
+            <figure><img src="imagens/foto5.jpg" alt="Imagem 5"><figcaption>Imagem 5</figcaption></figure>
+            <figure><img src="imagens/foto6.jpg" alt="Imagem 6"><figcaption>Imagem 6</figcaption></figure>
+            <figure><img src="imagens/foto7.jpg" alt="Imagem 7"><figcaption>Imagem 7</figcaption></figure>
+            <figure><img src="imagens/foto8.jpg" alt="Imagem 8"><figcaption>Imagem 8</figcaption></figure>
+        </div>
+    </div>
+</main>
+
+<script>
+    const toggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('menu-nav');
+
+    toggle.addEventListener('click', () => {
+        nav.classList.toggle('show');
+    });
+</script>
+</body>
+</html>
